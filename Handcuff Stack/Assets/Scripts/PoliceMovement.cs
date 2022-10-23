@@ -9,10 +9,9 @@ public class PoliceMovement : MonoBehaviour
     public float jumpSpeed, moveSpeed;
     public Rigidbody rb;
 
-    public GameObject handcuffPrefab;
-    public GameObject handcuffPositionFixer;
 
-    public GameObject criminalPositionFixer;
+
+    //public GameObject lastObject;
 
     public int handcuffCount;
     
@@ -79,7 +78,16 @@ public class PoliceMovement : MonoBehaviour
 
         }
 
-        
+        if (other.gameObject.tag == "Criminal")
+        {
+            Debug.Log("crrrrrrr");
+
+            //criminalList.Add(other.gameObject);
+
+
+        }
+
+
 
 
         //if (other.gameObject.tag == "Criminal")
@@ -102,11 +110,16 @@ public class PoliceMovement : MonoBehaviour
         {
             Debug.Log("crrrrrrr");
 
-            collision.gameObject.transform.position = Vector3.MoveTowards(collision.gameObject.transform.position,criminalList[criminalList.Count - 1].transform.localPosition, 1f);;
+            //collision.gameObject.transform.position = Vector3.MoveTowards(collision.gameObject.transform.position,criminalList[criminalList.Count - 1].transform.localPosition, 1f);;
 
-            criminalList.Add(collision.gameObject);
+            //criminalList.Add(collision.gameObject);
+            
         }
     }
+
+    
+        
+
 
     private void HandcuffStack()
     {

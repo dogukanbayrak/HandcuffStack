@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Criminal
   - handcuff
+  - PoliceStation
   layers:
   - Default
   - TransparentFX

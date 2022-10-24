@@ -15,6 +15,7 @@ public class PoliceMovement : MonoBehaviour
 
     public int handcuffCount;
     
+    
 
     [SerializeField] private List<GameObject> handcuffList = new List<GameObject>();
 
@@ -30,6 +31,11 @@ public class PoliceMovement : MonoBehaviour
     void Update()
     {
         Movement();
+        if (handcuffCount < 0)
+        {
+            handcuffCount = 0;
+        }
+       
     }
 
     public void Movement()
@@ -64,42 +70,31 @@ public class PoliceMovement : MonoBehaviour
         {
             Debug.Log("aaaaaaaaaa");
 
-            if (handcuffCount < 11                )
+            if (handcuffCount < 11)
             {
                 HandcuffStack();
             }
 
             Destroy(other.gameObject);
 
-            //other.gameObject.transform.SetParent(transform);
-            //other.gameObject.transform.localPosition = new Vector3(0f, handcuffList[handcuffList.Count - 1].transform.localPosition.y + 3f, 0f);
-
-            //handcuffList.Add(other.gameObject);
-
         }
 
-        if (other.gameObject.tag == "Criminal")
+        if (other.gameObject.tag == "Criminal" && handcuffCount > 1)
         {
-            Debug.Log("crrrrrrr");
-
-            //criminalList.Add(other.gameObject);
-
+            HandcuffCountDecrease();
+            other.gameObject.GetComponent<CapsuleCollider>().enabled = false;
 
         }
 
+        if (other.gameObject.tag == "HandcuffDecrease" && handcuffCount>1)
+        {
+            HandcuffCountDecrease();
+        }
 
-
-
-        //if (other.gameObject.tag == "Criminal")
-        //{
-        //    Debug.Log("crrrrrrr");
-
-        //    other.gameObject.transform.position = Vector3.MoveTowards(other.gameObject.transform.position, criminalList[criminalList.Count - 1].transform.localPosition, moveSpeed);
-
-        //    criminalList.Add(other.gameObject);
-
-        //}
-
+        if (other.gameObject.tag == "PoliceStation" && criminalList.Count>1 )
+        {
+            CriminalRelease();
+        }
 
 
     }
@@ -110,9 +105,6 @@ public class PoliceMovement : MonoBehaviour
         {
             Debug.Log("crrrrrrr");
 
-            //collision.gameObject.transform.position = Vector3.MoveTowards(collision.gameObject.transform.position,criminalList[criminalList.Count - 1].transform.localPosition, 1f);;
-
-            //criminalList.Add(collision.gameObject);
             
         }
     }
@@ -126,7 +118,21 @@ public class PoliceMovement : MonoBehaviour
         handcuffList[handcuffCount].gameObject.SetActive(true);
         handcuffCount++;
     }
+    private void HandcuffCountDecrease()
+    {
+        handcuffList[handcuffCount-1].gameObject.SetActive(false);
+        handcuffCount--;
+    }
 
+    private void CriminalRelease()
+    {
+        criminalList[criminalList.Count - 1].gameObject.SetActive(false);
+        criminalList.RemoveAt(criminalList.Count - 1);
+        HandcuffStack();
+
+
+
+    }
 
 
 }

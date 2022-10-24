@@ -13,9 +13,6 @@ public class CriminalAI : MonoBehaviour
     [SerializeField] private bool movementCheck = false;
 
 
-    //[Header("Nav Settings")]
-    //[SerializeField] private Transform movePositionTransform;
-
     public GameObject destinationnn,target;
 
     Vector3 position;
@@ -32,7 +29,7 @@ public class CriminalAI : MonoBehaviour
         navMeshAgent = GetComponent<NavMeshAgent>();
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
 
@@ -49,11 +46,12 @@ public class CriminalAI : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player" && check)
+        if (other.gameObject.tag == "Player" && check && policeMovement.handcuffCount>0)
         {
             Debug.Log("sadasdasdasd");
 
             policeMovement.criminalList.Add(gameObject);
+            
 
             check = false;
             movementCheck = true;
@@ -62,10 +60,8 @@ public class CriminalAI : MonoBehaviour
 
             destinationnn = target;
 
-            //position = policeMovement.criminalList[policeMovement.criminalList.Count - 1].gameObject.transform.position;
 
             position = target.transform.position;
-
 
         }
         
@@ -84,8 +80,6 @@ public class CriminalAI : MonoBehaviour
         destinationnn = target;
         position = target.transform.position;
         navMeshAgent.destination = position;
-
-        //Vector3 position = movePositionTransform.position;
 
 
     }

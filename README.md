@@ -2,7 +2,7 @@
 
 
 İstenildiği gibi kod kısmına yoğunlaşıldı animasyonlar ve UI tasarımı ile uğraşılmadı. Ana karakterimiz joystick ile hareket ettirilebiliyor.
-Kırmızı olanlar suçlular. Siyah kutular ile kelepçelerimiz. Kelepçeler karakterin sırtında stackleniyor. Kelepçemiz varken suçlular ile etkileşime geçince
+Kırmızı olanlar suçlular. Siyah kutular kelepçelerimiz. Kelepçeler karakterin sırtında stackleniyor. Kelepçemiz varken suçlular ile etkileşime geçince
 suçlular bizi takip etmeye başlıyor. Sağ taraftaki açık mavi olan kısım da polis karakolu. Oradan suçları teslim ediyoruz. Her teslim ettiğimiz suçlu için 
 kelepçelerimiz geri ekleniyor.
 

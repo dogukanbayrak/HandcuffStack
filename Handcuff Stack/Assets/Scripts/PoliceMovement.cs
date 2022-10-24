@@ -6,9 +6,9 @@ using UnityEngine;
 public class PoliceMovement : MonoBehaviour
 {
 
-    public float jumpSpeed, moveSpeed;
+    public float  moveSpeed;
     public Rigidbody rb;
-
+    public Joystick joystick;
 
 
     //public GameObject lastObject;
@@ -31,6 +31,8 @@ public class PoliceMovement : MonoBehaviour
     void Update()
     {
         Movement();
+
+
         if (handcuffCount < 0)
         {
             handcuffCount = 0;
@@ -40,26 +42,23 @@ public class PoliceMovement : MonoBehaviour
 
     public void Movement()
     {
-        if (Input.GetKey(KeyCode.W))
+        if (joystick.Vertical > 0.1f)
         {
             transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
         }
-        else if (Input.GetKey(KeyCode.S))
+        else if (joystick.Vertical < -0.1f)
         {
             transform.Translate(Vector3.back * moveSpeed * Time.deltaTime);
         }
-        if (Input.GetKey(KeyCode.D))
+        if (joystick.Horizontal > 0.1f)
         {
             transform.Translate(Vector3.right * moveSpeed * Time.deltaTime);
         }
-        else if (Input.GetKey(KeyCode.A))
+        else if (joystick.Horizontal < -0.1f)
         {
             transform.Translate(Vector3.left * moveSpeed * Time.deltaTime);
         }
-        if (Input.GetKeyDown(KeyCode.Space) )
-        {
-            rb.velocity += Vector3.up * jumpSpeed;
-        }
+        
 
 
     }

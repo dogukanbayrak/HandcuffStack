@@ -1,4 +1,4 @@
-#Mon Oct 24 15:56:25 EET 2022
+#Mon Oct 24 16:09:52 EET 2022
 base.0=C\:\\Users\\draw6\\GithubDesktop\\HandcuffStack\\Handcuff Stack\\Library\\Bee\\Android\\Prj\\Mono2x\\Gradle\\launcher\\build\\intermediates\\dex\\release\\mergeDexRelease\\classes.dex
 path.0=classes.dex
 renamed.0=classes.dex

@@ -24,7 +24,7 @@ public class PoliceMovement : MonoBehaviour
     void Start()
     {
         handcuffCount = 0;
-        //handcuffList.Add(handcuffPositionFixer);
+        
         criminalList.Add(gameObject);    
     }
 
@@ -67,8 +67,7 @@ public class PoliceMovement : MonoBehaviour
     {
         if(other.gameObject.tag == "handcuff")
         {
-            Debug.Log("aaaaaaaaaa");
-
+            
             if (handcuffCount < 11)
             {
                 HandcuffStack();
@@ -78,7 +77,7 @@ public class PoliceMovement : MonoBehaviour
 
         }
 
-        if (other.gameObject.tag == "Criminal" && handcuffCount > 1)
+        if (other.gameObject.tag == "Criminal" && handcuffCount >= 1)
         {
             HandcuffCountDecrease();
             other.gameObject.GetComponent<CapsuleCollider>().enabled = false;
@@ -102,9 +101,7 @@ public class PoliceMovement : MonoBehaviour
     {
         if(collision.gameObject.tag == "Criminal")
         {
-            Debug.Log("crrrrrrr");
-
-            
+           
         }
     }
 

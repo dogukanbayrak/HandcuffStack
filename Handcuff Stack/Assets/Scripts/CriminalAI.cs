@@ -48,7 +48,7 @@ public class CriminalAI : MonoBehaviour
     {
         if (other.gameObject.tag == "Player" && check && policeMovement.handcuffCount>0)
         {
-            Debug.Log("sadasdasdasd");
+            
 
             policeMovement.criminalList.Add(gameObject);
             

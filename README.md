@@ -8,3 +8,8 @@ kelepçelerimiz geri ekleniyor.
 
 
 apk file : https://drive.google.com/file/d/1LHQtkWwcwSqqHwgju_WzwE_ku_42wp4H/view?usp=sharing
+
+
+Son güncelleme : 
+
+Dotween kullanılarak stack işlemi animasyona çevrildi.
